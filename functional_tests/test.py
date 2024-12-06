@@ -6,7 +6,7 @@ class TestFileUpload(TestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
-        self.url = "localhost:8000"
+        self.url = "localhost:8000/file/add/"
         return super().setUp()
     
     def tearDown(self):

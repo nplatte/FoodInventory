@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def AddFileView(request):
+    return render(request, "file_upload.html")
