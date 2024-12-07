@@ -4,7 +4,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 class TestFileUpload(TestCase):
 
     def setUp(self):
-        self.url = "/file/add/"
+        self.url = "/files/add/"
 
     def tearDown(self):
         return super().tearDown()
