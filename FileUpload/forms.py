@@ -6,7 +6,8 @@ class FileForm(forms.Form):
         required=True,
         widget=forms.FileInput(
             attrs={
-                "class" : ""
+                "class" : "form",
+                "id" : "pdf_upload"
             }
         )
         )

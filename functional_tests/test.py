@@ -19,7 +19,7 @@ class TestFileUpload(StaticLiveServerTestCase):
         self.assertEqual("File Upload", self.browser.title)
         self.assert_Files_Uploaded(0)
         # send the file
-        self._submit_file("functional_tests/invoice.pdf")
+        self._submit_file("/home/nplatte/Desktop/Data/02_Food_Inventory/FileUpload/tests/invoice.pdf")
         # verify that the file pops up in the window
         self.assert_Files_Uploaded(1)       
 
@@ -31,7 +31,7 @@ class TestFileUpload(StaticLiveServerTestCase):
         # check that there are no files uploaded
         self.assert_Files_Uploaded(0)
         # try to save a txt file to the server
-        self._submit_file("functional_tests/bad.txt")
+        self._submit_file("/home/nplatte/Desktop/Data/02_Food_Inventory/FileUpload/tests/bad.txt")
         # assert the number of files remains the same
         self.assert_Files_Uploaded(0)
 

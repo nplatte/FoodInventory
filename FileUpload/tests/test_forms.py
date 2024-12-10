@@ -19,3 +19,7 @@ class TestFileUpload(TestCase):
         test_file = SimpleUploadedFile("FileUpload/tests/invoice.txt", b'Simple content', content_type='text/plain')
         f = self.form(data={}, files={"new_file":test_file})
         self.assertFalse(f.is_valid())
+
+    def test_form_attributes(self):
+        f = self.form()
+        self.assertIn('"pdf_upload"', f.as_p())
