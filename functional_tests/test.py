@@ -1,12 +1,12 @@
-from django.test import TestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-class TestFileUpload(TestCase):
+class TestFileUpload(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
-        self.url = "localhost:8000/file/add/"
+        self.url = f"{self.live_server_url}/files/add/"
         return super().setUp()
     
     def tearDown(self):

@@ -2,7 +2,14 @@ from django import forms
 
 class FileForm(forms.Form):
 
-    new_file = forms.FileField(required=True)
+    new_file = forms.FileField(
+        required=True,
+        widget=forms.FileInput(
+            attrs={
+                "class" : ""
+            }
+        )
+        )
 
     def clean_new_file(self):
         file = self.cleaned_data['new_file']
