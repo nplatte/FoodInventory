@@ -2,8 +2,12 @@
     <title>File Upload</title>
 </head>
 <body>
-    <form>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         {{ form }}
         <button type="submit" id="submit">Submit</button>
     </form>
+    {% for f in recent %}
+        <h5 class="file">f</h5>
+    {% endfor %}
 </body>

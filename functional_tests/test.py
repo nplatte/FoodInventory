@@ -1,6 +1,8 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from os import getcwd
+from time import sleep
 
 class TestFileUpload(StaticLiveServerTestCase):
 
@@ -19,7 +21,7 @@ class TestFileUpload(StaticLiveServerTestCase):
         self.assertEqual("File Upload", self.browser.title)
         self.assert_Files_Uploaded(0)
         # send the file
-        self._submit_file("/home/nplatte/Desktop/Data/02_Food_Inventory/FileUpload/tests/invoice.pdf")
+        self._submit_file(f"{getcwd()}/FileUpload/tests/invoice.pdf")
         # verify that the file pops up in the window
         self.assert_Files_Uploaded(1)       
 
@@ -31,7 +33,7 @@ class TestFileUpload(StaticLiveServerTestCase):
         # check that there are no files uploaded
         self.assert_Files_Uploaded(0)
         # try to save a txt file to the server
-        self._submit_file("/home/nplatte/Desktop/Data/02_Food_Inventory/FileUpload/tests/bad.txt")
+        self._submit_file(f"{getcwd()}/FileUpload/tests/bad.txt")
         # assert the number of files remains the same
         self.assert_Files_Uploaded(0)
 
@@ -42,6 +44,7 @@ class TestFileUpload(StaticLiveServerTestCase):
         # upload the file
         pdf_upload.send_keys(path)
         submit.click()
+        
 
     def assert_Files_Uploaded(self, x):
         # asserts that there are x files recetly uploaded

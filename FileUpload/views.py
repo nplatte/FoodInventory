@@ -8,6 +8,7 @@ def AddFileView(request):
     context['form'] = form
     context['recent'] = []
     if request.method == "POST":
+        print(request.FILES)
         filled_upload = FileForm(request.POST, request.FILES)
         context['form'] = filled_upload
         if filled_upload.is_valid():
