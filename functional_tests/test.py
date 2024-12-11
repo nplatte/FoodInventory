@@ -70,6 +70,7 @@ class TestOrderVeiwing(StaticLiveServerTestCase):
         self._submit_file(f'{getcwd()}/functional_tests/invoice.pdf')
         # navigate to the orders page
         self.url = f"{self.live_server_url}{reverse('view_orders')}"
+        self.browser.get(self.url)
         self.assertEqual("Orders", self.browser.title)
         # click the link to the order you want to view
         recent_order = self.browser.find_elements(By.CLASS_NAME, "order")[0]
