@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from FileUpload import urls as file_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("files/", include("FileUpload.urls"))
+    path("files/", include("FileUpload.urls")),
+    path("orders/", include("Orders.urls"))
 ]
