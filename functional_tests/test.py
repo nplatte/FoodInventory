@@ -9,7 +9,7 @@ class TestFileUpload(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
-        self.url = f"{self.live_server_url}{reverse('add_file')}"
+        self.url = f"{self.live_server_url}{reverse('add_order')}"
         return super().setUp()
     
     def tearDown(self):
@@ -57,7 +57,7 @@ class TestOrderVeiwing(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
-        self.url = f"{self.live_server_url}{reverse('add_file')}"
+        self.url = f"{self.live_server_url}{reverse('add_order')}"
         return super().setUp()
     
     def tearDown(self):
