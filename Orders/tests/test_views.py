@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
-from FileUpload.forms import FileForm
 from Orders.models import Order
+from Orders.forms import OrderForm
 from django.urls import reverse
 
 class TestFileUpload(TestCase):
@@ -32,8 +32,8 @@ class TestFileUpload(TestCase):
     def test_correct_form_used(self):
         get = self.client.get(self.url)
         post = self.client.post(self.url, {"new_file": self.good_file})
-        self.assertIsInstance(get.context['form'], FileForm)
-        self.assertIsInstance(post.context['form'], FileForm)
+        self.assertIsInstance(get.context['form'], OrderForm)
+        self.assertIsInstance(post.context['form'], OrderForm)
 
     def test_form_submission_makes_new_order(self):
         old_count = Order.objects.count()
