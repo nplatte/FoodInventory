@@ -5,7 +5,6 @@ from os import getcwd
 from time import sleep
 from django.urls import reverse
 
-
 class TestFileUpload(StaticLiveServerTestCase):
 
     def setUp(self):
