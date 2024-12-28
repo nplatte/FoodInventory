@@ -13,5 +13,6 @@ def add_order_page(request):
         filled_upload = OrderForm(request.POST, request.FILES)
         context['form'] = filled_upload
         if filled_upload.is_valid():
+            filled_upload.save()
             context['recent'].append(request.FILES['new_file'].name)
     return render(request, "Orders/add.html", context)
