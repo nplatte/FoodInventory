@@ -35,11 +35,21 @@ class TestFileUpload(TestCase):
         self.assertIsInstance(get.context['form'], OrderForm)
         self.assertIsInstance(post.context['form'], OrderForm)
 
-    def test_form_submission_makes_new_order(self):
+    def test_POST_makes_new_order(self):
         old_count = Order.objects.count()
         self.client.post(self.url, {"new_file": self.good_file})
         new_count = Order.objects.count()
         self.assertGreater(new_count, old_count)
+
+    def test_POST_adds_order_info(self):
+        self.client.post(self.url, {"new_file": self.good_file})
+        o_date = "11/24/2024"
+        o_id = 592096481
+        new_order = Order.objects.all()[0]
+        self.assertEqual(o_date, new_order.date_ordered)
+        self.assertEqual(o_id, new_order.order_id)
+
+
 
 class TestViewAllOrders(TestCase):
 

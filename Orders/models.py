@@ -4,4 +4,5 @@ from django.db import models
 
 class Order(models.Model):
 
-    pass
+    date_ordered = models.DateField()
+    
