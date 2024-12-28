@@ -2,4 +2,7 @@
     <title>Orders</title>
 </head>
 <body>
+    {% for order in orders %}
+    <h1 class="order">{{ order.pk }}</h1>
+    {% endfor %}
 </body>
