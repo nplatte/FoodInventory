@@ -40,4 +40,19 @@ class TestFileUpload(TestCase):
         self.client.post(self.url, {"new_file": self.good_file})
         new_count = Order.objects.count()
         self.assertGreater(new_count, old_count)
-        
+
+class TestViewAllOrders(TestCase):
+
+    def setUp(self):
+        url = reverse('view_orders')
+        self.o = Order.objects.create()
+        self.response = self.client.get(url)
+
+    def tearDown(self):
+        return super().tearDown()
+    
+    def test_GET_returns_200(self):
+        self.assertEqual(200, self.response.status_code)
+
+    def test_GET_sends_orders(self):
+        self.assertIn(self.o, self.response.context['orders'])

@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from .forms import OrderForm
+from .models import Order
 
 def all_orders_page(request):
-    return render(request, 'Orders/all.html')
+    context = {}
+    context['orders'] = Order.objects.all()
+    return render(request, 'Orders/all.html', context)
 
 def add_order_page(request):
     form = OrderForm()
