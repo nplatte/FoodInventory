@@ -3,6 +3,9 @@
 </head>
 <body>
     {% for order in orders %}
-    <h1 class="order">{{ order.pk }}</h1>
+    <div class="order">
+        <h1 class="order_id">{{ order.pk }}</h1>
+        <h1 id="order_date">{{ order.order_date }}</h1>
+    </div>
     {% endfor %}
 </body>
